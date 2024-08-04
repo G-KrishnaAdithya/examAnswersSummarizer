@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Upload PDF or Image</title>
+    <title>Upload PDF or Image - examSummarizer by G-Krishna Adithya</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -21,7 +21,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        h1 {
+        h1, h2 {
             color: #333;
         }
         input[type="file"] {
@@ -47,11 +47,24 @@
             color: red;
             margin-top: 1rem;
         }
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+        .footer a {
+            color: #5a67d8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer a:hover {
+            color: #434190;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Upload a PDF or Image file</h1>
+        <h1>Exam Summarizer</h1>
+        <h3>Upload a PDF or Image file</h3>
         <form action="/" method="post" enctype="multipart/form-data">
             <input type="file" name="file" accept=".pdf, image/*">
             <button type="submit">Upload</button>
@@ -65,6 +78,9 @@
             </div>
           {% endif %}
         {% endwith %}
+        <div class="footer">
+            Developed by <a href="https://github.com/G-KrishnaAdithya" target="_blank">G-Krishna Adithya</a>
+        </div>
     </div>
 </body>
 </html>
