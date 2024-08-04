@@ -1,7 +1,12 @@
 # examAnswersSummarizer
 
-ExamAnswersSummarizer App Description
-Overview:
+# Problem 
+Usually pdf summarizing tools which most of our college students use are paid and have limited usage capabilities , So I built this to solve the mentioned problems 
+
+# ExamAnswersSummarizer App Description
+
+# Overview:
+
 ExamAnswersSummarizer is an innovative application designed to assist students and educators by providing concise summaries and answers to questions from study materials. By leveraging advanced OCR and natural language processing (NLP) technologies, the app simplifies the process of studying and reviewing content from PDFs.
 
 Key Features:
