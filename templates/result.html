@@ -2,82 +2,123 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PDF Summary and Query</title>
+    <title>Results</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
+            background-color: #f0f2f5;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            flex-direction: column;
+            min-height: 100vh;
+            color: #333;
         }
         .container {
             text-align: center;
             background: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
+            padding: 2rem 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
             width: 100%;
-            margin-bottom: 2rem;
+            box-sizing: border-box;
         }
-        h1, h2, h3 {
+        h1 {
             color: #333;
+            font-size: 24px;
+            margin-bottom: 1rem;
         }
-        p {
-            background: #e2e8f0;
+        .flash-message {
+            color: red;
+            margin-top: 1rem;
+        }
+        .summary {
+            text-align: left;
+            margin-top: 2rem;
+            line-height: 1.5;
+            font-size: 16px;
+            background-color: #f9f9f9;
             padding: 1rem;
-            border-radius: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .query-response {
+            margin-top: 2rem;
+            text-align: left;
+        }
+        .query-response h2 {
+            font-size: 20px;
+            margin-bottom: 1rem;
+        }
+        .query-response div {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            margin-bottom: 1rem;
+        }
+        .query-response p {
+            margin: 0.5rem 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        form {
+            margin-top: 2rem;
         }
         input[type="text"] {
-            margin: 1rem 0;
+            width: calc(100% - 22px);
             padding: 0.5rem;
+            margin-bottom: 1rem;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            width: calc(100% - 1rem);
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
         }
         button {
-            padding: 0.7rem 2rem;
+            padding: 0.7rem 1.5rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             background-color: #5a67d8;
             color: #fff;
-            font-size: 1rem;
+            font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
         button:hover {
             background-color: #434190;
         }
-        .query-response {
-            background: #e2e8f0;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-top: 1rem;
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>PDF Summary</h1>
-        <p>{{ summary }}</p>
-
-        <h2>Ask a Query</h2>
-        <form action="/result" method="post">
-            <input type="text" name="query" placeholder="Ask your question here" required>
-            <button type="submit">Ask</button>
-        </form>
-
-        {% for qr in queries_responses %}
-        <div class="query-response">
-            <h3>Query: {{ qr.query }}</h3>
-            <p>Answer: {{ qr.answer }}</p>
+        <h1>Summary</h1>
+        <div class="flash-message">
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                {% for message in messages %}
+                  <p>{{ message }}</p>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
         </div>
-        {% endfor %}
+        <div class="summary">
+            <p>{{ summary }}</p>
+        </div>
+        <div class="query-response">
+            <h2>Queries and Responses</h2>
+            {% for qr in queries_responses %}
+                <div>
+                    <p><strong>Query:</strong> {{ qr.query }}</p>
+                    <p><strong>Answer:</strong> {{ qr.answer }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <form action="/result" method="post">
+            <input type="text" name="query" placeholder="Enter your query">
+            <button type="submit">Submit</button>
+        </form>
     </div>
 </body>
 </html>

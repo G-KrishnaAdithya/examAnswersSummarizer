@@ -5,12 +5,12 @@ genai.configure(api_key=GOOGLE_API_KEY)
 generation_config = {
     "temperature": 0.9,
     "top_p": 1,
-    "max_output_tokens": 5000,
+    "max_output_tokens": 2000,
     "response_mime_type": "text/plain",
 }
 
 model = genai.GenerativeModel(
-    model_name="gemini-1.0-pro",
+    model_name="gemini-1.5-pro",
     generation_config=generation_config,
 )
 

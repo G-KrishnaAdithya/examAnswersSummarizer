@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Upload PDF</title>
+    <title>Upload PDF or Image</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -44,15 +43,28 @@
         button:hover {
             background-color: #434190;
         }
+        .flash-message {
+            color: red;
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Upload a PDF file</h1>
+        <h1>Upload a PDF or Image file</h1>
         <form action="/" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" accept=".pdf">
+            <input type="file" name="file" accept=".pdf, image/*">
             <button type="submit">Upload</button>
         </form>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash-message">
+              {% for message in messages %}
+                <p>{{ message }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
     </div>
 </body>
 </html>
