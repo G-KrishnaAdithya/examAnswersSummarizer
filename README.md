@@ -9,10 +9,9 @@ Usually pdf summarizing tools which most of our college students use are paid an
 
 ExamAnswersSummarizer is an innovative application designed to assist students and educators by providing concise summaries and answers to questions from study materials. By leveraging advanced OCR and natural language processing (NLP) technologies, the app simplifies the process of studying and reviewing content from PDFs.
 
-Key Features:
+# Key Features:
 
 PDF Processing:
-
 Upload PDFs containing study materials, including textbooks, notes, and practice papers.
 High-accuracy OCR technology extracts text from scanned documents.
 Content Summarization:
@@ -31,7 +30,8 @@ Personalized Learning:
 
 Customizable settings to focus on specific topics or sections within the PDF.
 Adaptive learning capabilities to provide targeted summaries and answers based on user preferences.
-Use Cases:
+
+# Use Cases:
 
 Students: Streamline study sessions by quickly accessing summaries and answers, saving time and enhancing comprehension.
 Educators: Efficiently review and provide feedback on study materials and practice exams.

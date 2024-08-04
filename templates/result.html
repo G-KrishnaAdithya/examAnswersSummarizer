@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Summary and Query</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        p {
+            background: #e2e8f0;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        input[type="text"] {
+            margin: 1rem 0;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: calc(100% - 1rem);
+        }
+        button {
+            padding: 0.7rem 2rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #5a67d8;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #434190;
+        }
+        .query-response {
+            background: #e2e8f0;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PDF Summary</h1>
+        <p>{{ summary }}</p>
+
+        <h2>Ask a Query</h2>
+        <form action="/result" method="post">
+            <input type="text" name="query" placeholder="Ask your question here" required>
+            <button type="submit">Ask</button>
+        </form>
+
+        {% for qr in queries_responses %}
+        <div class="query-response">
+            <h3>Query: {{ qr.query }}</h3>
+            <p>Answer: {{ qr.answer }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
