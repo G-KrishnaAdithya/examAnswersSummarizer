@@ -29,7 +29,7 @@ def upload_file():
                 session['pdf_text'] = pdf_text
                 session['queries_responses'] = []
                 if is_too_large:
-                    flash("The PDF is too large. Results may only cover the first few pages.\nTo get exact explanation of a page please upload the pages u want explanation for")
+                    flash("The PDF is too large. Results may only cover the first few pages.\n")
                 return redirect(url_for('result'))
     
     return render_template('home.html')
