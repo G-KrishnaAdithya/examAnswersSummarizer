@@ -1,6 +1,6 @@
 Follow these steps to use the app
 
-Create a config.py app and have you Google api key ther in the belpw format 
+Create a config.py app and have your Google api key there in the below format 
 config.py
 GOOGLE_API_KEY="YOUR-API-KEY"
 
